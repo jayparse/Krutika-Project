@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/Krutika.png" type="image/x-icon">
+  <title>Krutika Dineshrao Dukare - Profile</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f9; color:#222 }
+    header { background:#4a90e2; color:#fff; padding:20px; text-align:center }
+    .container{max-width:1100px;margin:20px auto;padding:18px}
+    .profile{display:flex;gap:20px;align-items:center;margin-bottom:28px}
+    .profile img{width:140px;height:140px;border-radius:50%;object-fit:cover}
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+    .card{background:#fff;border-radius:10px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+    .card img{width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px}
+    .card h3{color:#2b6fb3;margin:8px 0}
+    pre{background:#272822;color:#f8f8f2;padding:12px;border-radius:8px;overflow:auto;font-size:13px}
+    .download-btn{display:inline-block;margin-top:8px;padding:10px 14px;background:#4a90e2;color:#fff;text-decoration:none;border-radius:6px}
+    .download-btn:hover{background:#356ea8}
+    .small{font-size:13px;color:#555}
+    button.download-btn{border:none;cursor:pointer}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Shri Sai CSC Computer Institute</h1>
+    <h2>Student Profile — Krutika Dineshrao Dukare</h2>
+    <p class="small">Python (Basic to Advanced) Engineering Student</p>
+  </header>
+
+  <div class="container">
+    <section class="profile">
+      <img src="/Krutika.png" alt="Krutika Photo">
+      <div>
+        <h2>About Krutika</h2>
+        <p class="small">Krutika is an engineering student skilled in Python (basic to advanced). She has built projects that demonstrate programming fundamentals, UI skills, file handling and small application architecture.</p>
+      </div>
+    </section>
+
+    <h2>Projects</h2>
+    <div class="projects">
+
+      <!-- Basic Python Calculator -->
+      <div class="card" id="calculatorCard">
+        <img src="https://media.istockphoto.com/id/544462430/vector/calculator-isolated-on-a-colored-background.jpg?s=612x612&w=0&k=20&c=ptXtmT7ncKWQT2CkUXQ7vQHtJoSyT6uDegXOD_x31ic=">
+        <h3>Basic Python Calculator</h3>
+        <p class="small">A simple calculator built using Python covering fundamental concepts of programming, including functions, user input, and error handling.</p>
+
+        <h4>Features</h4>
+        <ul>
+          <li>Addition, Subtraction, Multiplication, Division</li>
+          <li>Graceful handling of invalid input</li>
+          <li>Modular code using functions</li>
+          <li>Interactive command-line interface</li>
+        </ul>
+
+        <h4>Code (preview)</h4>
+        <pre id="calculatorPreview" aria-label="Calculator code preview"></pre>
+
+        <div style="display:flex;gap:8px;margin-top:10px">
+          <button class="download-btn" id="downloadCalculator">⬇️ Download Calculator Project</button>
+          <button class="download-btn" id="copyCalculator">📋 Copy Code</button>
+        </div>
+      </div>
+
+      <!-- To-Do Desktop App -->
+      <div class="card" id="todoCard">
+        <img src="https://plus.unsplash.com/premium_photo-1681487870238-4a2dfddc6bcb?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dG8lMjBkbyUyMGxpc3R8ZW58MHx8MHx8fDA%3D" alt="To-Do App Screenshot">
+        <h3>To-Do Desktop Application</h3>
+        <p class="small">A beautiful To-Do desktop application built in Python. It supports add/edit/delete, priorities, due dates, SQLite persistence and JSON import/export. Optional UI enhancement via <code>ttkbootstrap</code>.</p>
+
+        <h4>Features</h4>
+        <ul>
+          <li>Add / Edit / Delete tasks</li>
+          <li>Mark tasks as Complete / Incomplete</li>
+          <li>Priority: High / Medium / Low</li>
+          <li>Due dates, descriptions and search/filter</li>
+          <li>Persistent storage (SQLite)</li>
+          <li>Import / Export JSON</li>
+        </ul>
+
+        <h4>Code (preview)</h4>
+        <pre id="todoPreview" aria-label="To-Do app code preview"></pre>
+
+        <div style="display:flex;gap:8px;margin-top:10px">
+          <button class="download-btn" id="downloadTodo">⬇️ Download To-Do App</button>
+          <button class="download-btn" id="copyTodo">📋 Copy Code</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Embedded project source files so download works even when opening the HTML locally.
+    const basicCalculatorCode = `def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    try:
+        return x / y
+    except ZeroDivisionError:
+        return "Error! Division by zero."
+
+def calculator():
+    print("Select operation:")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+
+    choice = input("Enter choice (1/2/3/4): ")
+    
+    try:
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+    except ValueError:
+        print("Invalid input! Please enter numbers only.")
+        return
+
+    if choice == '1':
+        print("Result:", add(num1, num2))
+    elif choice == '2':
+        print("Result:", subtract(num1, num2))
+    elif choice == '3':
+        print("Result:", multiply(num1, num2))
+    elif choice == '4':
+        print("Result:", divide(num1, num2))
+    else:
+        print("Invalid choice!")
+
+if __name__ == "__main__":
+    calculator()
+`;
+
+    const todoAppCode = `"""
+Beautiful To‑Do Desktop Application (single-file)
+Features:
+- Modern-looking UI (uses ttkbootstrap if available, falls back to ttk)
+- Add / Edit / Delete tasks
+- Mark tasks Complete / Incomplete
+- Priority (Low / Medium / High) and Due date (text input)
+- Search and filter (All / Active / Completed / Priority)
+- Persistent storage using SQLite (local file: todos.db)
+- Export / Import JSON
+
+Run:
+    python todo_desktop_app.py
+
+Optional (for best visuals):
+    pip install ttkbootstrap pillow
+
+This file is self-contained. If ttkbootstrap isn't installed the app will still run using standard ttk with custom styles.
+"""
+
+import os
+import sys
+import json
+import sqlite3
+from datetime import datetime
+import tkinter as tk
+from tkinter import ttk, messagebox, filedialog
+
+# Try to use ttkbootstrap for a nicer modern theme. If not available fall back to ttk.
+try:
+    import ttkbootstrap as tb
+    from ttkbootstrap.constants import *
+    USE_BOOTSTRAP = True
+except Exception:
+    USE_BOOTSTRAP = False
+
+DB_FILE = os.path.join(os.path.dirname(__file__), 'todos.db')
+
+# ----------------------- Database helpers -----------------------
+class DB:
+    def __init__(self, path=DB_FILE):
+        self.conn = sqlite3.connect(path)
+        self.create_table()
+
+    def create_table(self):
+        self.conn.execute('''
+            CREATE TABLE IF NOT EXISTS tasks (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                title TEXT NOT NULL,
+                description TEXT,
+                due_date TEXT,
+                priority TEXT,
+                completed INTEGER DEFAULT 0,
+                created_at TEXT
+            )
+        ''')
+        self.conn.commit()
+
+    def add_task(self, title, description='', due_date='', priority='Medium'):
+        created = datetime.utcnow().isoformat()
+        cur = self.conn.cursor()
+        cur.execute('INSERT INTO tasks (title, description, due_date, priority, completed, created_at) VALUES (?,?,?,?,0,?)',
+                    (title, description, due_date, priority, created))
+        self.conn.commit()
+        return cur.lastrowid
+
+    def update_task(self, task_id, **fields):
+        keys = []
+        vals = []
+        for k, v in fields.items():
+            keys.append(f"{k} = ?")
+            vals.append(v)
+        vals.append(task_id)
+        sql = f"UPDATE tasks SET {', '.join(keys)} WHERE id = ?"
+        self.conn.execute(sql, vals)
+        self.conn.commit()
+
+    def delete_task(self, task_id):
+        self.conn.execute('DELETE FROM tasks WHERE id = ?', (task_id,))
+        self.conn.commit()
+
+    def list_tasks(self, where_clause=None, params=()):
+        sql = 'SELECT id, title, description, due_date, priority, completed, created_at FROM tasks'
+        if where_clause:
+            sql += ' WHERE ' + where_clause
+        sql += ' ORDER BY completed ASC, created_at DESC'
+        cur = self.conn.execute(sql, params)
+        return cur.fetchall()
+
+    def close(self):
+        self.conn.close()
+
+# ----------------------- GUI -----------------------
+class TodoApp:
+    def __init__(self, root):
+        self.root = root
+        self.db = DB()
+        self.setup_style()
+        self.build_ui()
+        self.load_tasks()
+
+    def setup_style(self):
+        if USE_BOOTSTRAP:
+            # If ttkbootstrap is available, root is an instance of tb.Window; themes are nicer
+            pass
+        else:
+            style = ttk.Style()
+            # Create custom styles for better appearance
+            try:
+                style.theme_use('clam')
+            except Exception:
+                pass
+            style.configure('TFrame', background='#0f1724')
+            style.configure('Card.TFrame', background='#071428', relief='flat')
+            style.configure('TLabel', background='#071428', foreground='#e6eef8', font=('Inter', 10))
+            style.configure('Header.TLabel', font=('Inter', 14, 'bold'))
+            style.configure('Accent.TButton', background='#7c5cff', foreground='#041026')
+
+    def build_ui(self):
+        self.root.title('To‑Do — Beautiful Desktop App')
+        self.root.geometry('920x620')
+        self.root.minsize(780, 520)
+
+        # If using ttkbootstrap, create a tb.Window to get themes
+        if USE_BOOTSTRAP:
+            # Recreate a tb.Window if we started with a plain tk.Tk
+            try:
+                self.root.destroy()
+            except Exception:
+                pass
+            self.root = tb.Window(themename='litera')
+            self.root.title('To‑Do — Beautiful Desktop App')
+            self.root.geometry('920x620')
+
+        # Main container
+        container = ttk.Frame(self.root, padding=12)
+        container.pack(fill='both', expand=True)
+
+        # Header
+        header = ttk.Frame(container)
+        header.pack(fill='x')
+        title = ttk.Label(header, text='🗓️  Krutika — To‑Do Manager', style='Header.TLabel')
+        title.pack(side='left')
+        subtitle = ttk.Label(header, text='Shri Sai • CSC Computer Institute', font=('Inter', 9), foreground='#9aa4b2')
+        subtitle.pack(side='left', padx=(10,0))
+
+        # Top controls
+        controls = ttk.Frame(container)
+        controls.pack(fill='x', pady=(10,8))
+        self.search_var = tk.StringVar()
+        search = ttk.Entry(controls, textvariable=self.search_var, width=36)
+        search.pack(side='left')
+        search.bind('<KeyRelease>', lambda e: self.load_tasks())
+
+        self.filter_var = tk.StringVar(value='All')
+        filter_menu = ttk.OptionMenu(controls, self.filter_var, 'All', 'All', 'Active', 'Completed', 'High', 'Medium', 'Low', command=lambda v: self.load_tasks())
+        filter_menu.pack(side='left', padx=8)
+
+        add_btn = ttk.Button(controls, text='＋ Add Task', command=self.open_add_dialog, bootstyle='success' if USE_BOOTSTRAP else None)
+        add_btn.pack(side='right')
+
+        export_btn = ttk.Button(controls, text='Export JSON', command=self.export_json, bootstyle='info' if USE_BOOTSTRAP else None)
+        export_btn.pack(side='right', padx=(0,8))
+
+        import_btn = ttk.Button(controls, text='Import JSON', command=self.import_json, bootstyle='info' if USE_BOOTSTRAP else None)
+        import_btn.pack(side='right', padx=(0,8))
+
+        # Content split: left list, right detail
+        content = ttk.Frame(container)
+        content.pack(fill='both', expand=True)
+
+        left = ttk.Frame(content)
+        left.pack(side='left', fill='both', expand=True)
+
+        # Treeview for tasks
+        cols = ('#1','#2','#3','#4')
+        self.tree = ttk.Treeview(left, columns=cols, show='headings', selectmode='browse')
+        self.tree.heading('#1', text='Title')
+        self.tree.heading('#2', text='Due')
+        self.tree.heading('#3', text='Priority')
+        self.tree.heading('#4', text='Status')
+        self.tree.column('#1', width=340)
+        self.tree.column('#2', width=120)
+        self.tree.column('#3', width=80, anchor='center')
+        self.tree.column('#4', width=80, anchor='center')
+        self.tree.pack(fill='both', expand=True, padx=(0,8), pady=(6,0))
+
+        # Treeview bindings
+        self.tree.bind('<Double-1>', self.on_tree_double)
+        self.tree.bind('<<TreeviewSelect>>', lambda e: self.show_selected_details())
+
+        # Right panel: details and actions
+        right = ttk.Frame(content, width=320)
+        right.pack(side='right', fill='y')
+
+        card = ttk.Frame(right, padding=12, style='Card.TFrame')
+        card.pack(fill='both', expand=True)
+
+        self.detail_title = ttk.Label(card, text='Select a task to view details', font=('Inter',12,'bold'))
+        self.detail_title.pack(anchor='w')
+        self.detail_meta = ttk.Label(card, text='', font=('Inter',9), foreground='#9aa4b2')
+        self.detail_meta.pack(anchor='w', pady=(4,8))
+        self.detail_desc = tk.Text(card, height=10, wrap='word', background='#071428', foreground='#e6eef8', borderwidth=0)
+        self.detail_desc.pack(fill='both', expand=True)
+        self.detail_desc.config(state='disabled')
+
+        action_frame = ttk.Frame(card)
+        action_frame.pack(fill='x', pady=(8,0))
+
+        self.complete_btn = ttk.Button(action_frame, text='Mark Complete', command=self.toggle_complete, bootstyle='success' if USE_BOOTSTRAP else None)
+        self.complete_btn.pack(side='left')
+        edit_btn = ttk.Button(action_frame, text='Edit', command=self.open_edit_dialog)
+        edit_btn.pack(side='left', padx=6)
+        del_btn = ttk.Button(action_frame, text='Delete', command=self.delete_selected, bootstyle='danger' if USE_BOOTSTRAP else None)
+        del_btn.pack(side='right')
+
+        # status bar
+        self.status = ttk.Label(container, text='Ready', foreground='#9aa4b2')
+        self.status.pack(fill='x', pady=(8,0))
+
+    # ---------------- Task operations ----------------
+    def load_tasks(self):
+        q = self.search_var.get().strip().lower()
+        f = self.filter_var.get()
+        where = []
+        params = []
+        if q:
+            where.append('(lower(title) LIKE ? OR lower(description) LIKE ? OR lower(priority) LIKE ?)')
+            params.extend([f'%{q}%']*3)
+        if f and f != 'All':
+            if f in ('Active','Completed'):
+                val = 1 if f == 'Completed' else 0
+                where.append('completed = ?')
+                params.append(val)
+            elif f in ('High','Medium','Low'):
+                where.append('priority = ?')
+                params.append(f)
+        where_clause = ' AND '.join(where) if where else None
+        rows = self.db.list_tasks(where_clause, tuple(params))
+
+        # clear tree
+        for r in self.tree.get_children():
+            self.tree.delete(r)
+
+        for row in rows:
+            tid, title, desc, due, priority, completed, created = row
+            status = 'Done' if completed else 'Active'
+            display_title = title + ('' if not completed else ' ✅')
+            self.tree.insert('', 'end', iid=str(tid), values=(display_title, due or '-', priority, status))
+
+        self.status['text'] = f'{len(rows)} tasks loaded'
+
+    def show_selected_details(self):
+        sel = self.tree.selection()
+        if not sel:
+            self.detail_title['text'] = 'Select a task to view details'
+            self.detail_meta['text'] = ''
+            self.detail_desc.config(state='normal')
+            self.detail_desc.delete('1.0', 'end')
+            self.detail_desc.config(state='disabled')
+            return
+        tid = int(sel[0])
+        rows = self.db.list_tasks('id = ?', (tid,))
+        if not rows:
+            return
+        _, title, desc, due, priority, completed, created = rows[0]
+        self.detail_title['text'] = title + ('' if not completed else ' ✅')
+        meta = f'Priority: {priority}  •  Due: {due or "—"}  •  Created: {created.split("T")[0]}'
+        self.detail_meta['text'] = meta
+        self.detail_desc.config(state='normal')
+        self.detail_desc.delete('1.0', 'end')
+        self.detail_desc.insert('1.0', desc or 'No description provided.')
+        self.detail_desc.config(state='disabled')
+        self.complete_btn['text'] = ('Mark Incomplete' if completed else 'Mark Complete')
+
+    def on_tree_double(self, event):
+        # Open edit dialog on double click
+        self.open_edit_dialog()
+
+    def get_selected_id(self):
+        sel = self.tree.selection()
+        if not sel:
+            messagebox.showinfo('No selection', 'Please select a task first.')
+            return None
+        return int(sel[0])
+
+    def toggle_complete(self):
+        tid = self.get_selected_id()
+        if not tid: return
+        rows = self.db.list_tasks('id = ?', (tid,))
+        if not rows: return
+        completed = rows[0][5]
+        new = 0 if completed else 1
+        self.db.update_task(tid, completed=new)
+        self.load_tasks()
+        self.show_selected_details()
+
+    def delete_selected(self):
+        tid = self.get_selected_id()
+        if not tid: return
+        if not messagebox.askyesno('Delete', 'Are you sure you want to delete this task?'):
+            return
+        self.db.delete_task(tid)
+        self.load_tasks()
+        self.show_selected_details()
+
+    # ---------------- Dialogs ----------------
+    def open_add_dialog(self):
+        Dialog(self.root, title='Add Task', on_save=self.add_task)
+
+    def open_edit_dialog(self):
+        tid = self.get_selected_id()
+        if not tid: return
+        rows = self.db.list_tasks('id = ?', (tid,))
+        if not rows: return
+        _, title, desc, due, priority, completed, created = rows[0]
+        Dialog(self.root, title='Edit Task', data={'id':tid,'title':title,'description':desc,'due_date':due,'priority':priority}, on_save=self.edit_task)
+
+    def add_task(self, data):
+        title = data.get('title','').strip()
+        if not title:
+            messagebox.showwarning('Missing title','Please enter a title for the task.')
+            return False
+        self.db.add_task(title, data.get('description',''), data.get('due_date',''), data.get('priority','Medium'))
+        self.load_tasks()
+        return True
+
+    def edit_task(self, data):
+        tid = data.get('id')
+        if not tid: return False
+        title = data.get('title','').strip()
+        if not title:
+            messagebox.showwarning('Missing title','Please enter a title for the task.')
+            return False
+        self.db.update_task(tid, title=title, description=data.get('description',''), due_date=data.get('due_date',''), priority=data.get('priority','Medium'))
+        self.load_tasks()
+        self.show_selected_details()
+        return True
+
+    # ---------------- Import / Export ----------------
+    def export_json(self):
+        rows = self.db.list_tasks()
+        data = []
+        for r in rows:
+            tid, title, desc, due, priority, completed, created = r
+            data.append({'id':tid,'title':title,'description':desc,'due_date':due,'priority':priority,'completed':bool(completed),'created_at':created})
+        f = filedialog.asksaveasfilename(defaultextension='.json', filetypes=[('JSON files','*.json')], title='Export tasks as JSON')
+        if not f: return
+        with open(f,'w',encoding='utf-8') as fh:
+            json.dump(data, fh, ensure_ascii=False, indent=2)
+        messagebox.showinfo('Exported', f'Exported {len(data)} tasks to {f}')
+
+    def import_json(self):
+        f = filedialog.askopenfilename(filetypes=[('JSON files','*.json')], title='Import tasks from JSON')
+        if not f: return
+        with open(f,'r',encoding='utf-8') as fh:
+            data = json.load(fh)
+        count=0
+        for item in data:
+            title = item.get('title')
+            if not title: continue
+            self.db.add_task(title, item.get('description',''), item.get('due_date',''), item.get('priority','Medium'))
+            count+=1
+        self.load_tasks()
+        messagebox.showinfo('Imported', f'Imported {count} tasks')
+
+# ---------------- Dialog component ----------------
+class Dialog(tk.Toplevel):
+    def __init__(self, parent, title='Dialog', data=None, on_save=None):
+        super().__init__(parent)
+        self.transient(parent)
+        self.title(title)
+        self.parent = parent
+        self.on_save = on_save
+        self.result = None
+        self.protocol('WM_DELETE_WINDOW', self.on_close)
+        self.resizable(False, False)
+
+        self.data = data or {}
+        self.build()
+        self.grab_set()
+        self.wait_window(self)
+
+    def build(self):
+        frm = ttk.Frame(self, padding=12)
+        frm.pack(fill='both', expand=True)
+
+        ttk.Label(frm, text='Title:').grid(row=0, column=0, sticky='w')
+        self.title_var = tk.StringVar(value=self.data.get('title',''))
+        self.title_entry = ttk.Entry(frm, textvariable=self.title_var, width=48)
+        self.title_entry.grid(row=0, column=1, pady=4, sticky='w')
+
+        ttk.Label(frm, text='Priority:').grid(row=1, column=0, sticky='w')
+        self.priority_var = tk.StringVar(value=self.data.get('priority','Medium'))
+        prio = ttk.OptionMenu(frm, self.priority_var, self.priority_var.get(), 'High','Medium','Low')
+        prio.grid(row=1, column=1, sticky='w')
+
+        ttk.Label(frm, text='Due Date:').grid(row=2, column=0, sticky='w')
+        self.due_var = tk.StringVar(value=self.data.get('due_date',''))
+        self.due_entry = ttk.Entry(frm, textvariable=self.due_var, width=48)
+        self.due_entry.grid(row=2, column=1, pady=4, sticky='w')
+        ttk.Label(frm, text='(e.g. 2025-12-31 or "Tomorrow")', font=('Inter',8), foreground='#9aa4b2').grid(row=2, column=2, sticky='w')
+
+        ttk.Label(frm, text='Description:').grid(row=3, column=0, sticky='nw', pady=(8,0))
+        self.desc_text = tk.Text(frm, width=56, height=8, wrap='word')
+        self.desc_text.grid(row=3, column=1, columnspan=2, pady=(8,0))
+        self.desc_text.insert('1.0', self.data.get('description',''))
+
+        btn_frm = ttk.Frame(frm)
+        btn_frm.grid(row=4, column=0, columnspan=3, pady=(10,0))
+        save_btn = ttk.Button(btn_frm, text='Save', command=self.save, bootstyle='success' if USE_BOOTSTRAP else None)
+        save_btn.pack(side='right')
+        cancel_btn = ttk.Button(btn_frm, text='Cancel', command=self.on_close)
+        cancel_btn.pack(side='right', padx=(0,8))
+
+    def save(self):
+        data = {
+            'id': self.data.get('id'),
+            'title': self.title_var.get().strip(),
+            'priority': self.priority_var.get(),
+            'due_date': self.due_var.get().strip(),
+            'description': self.desc_text.get('1.0','end').strip()
+        }
+        ok = True
+        if self.on_save:
+            ok = self.on_save(data)
+        if ok:
+            self.destroy()
+
+    def on_close(self):
+        self.destroy()
+
+# ---------------- Entrypoint ----------------
+def main():
+    root = tk.Tk()
+    app = TodoApp(root)
+    root.mainloop()
+
+if __name__ == '__main__':
+    main()
+`;
+
+    // Show small preview in the page
+    document.getElementById('calculatorPreview').textContent = basicCalculatorCode;
+    document.getElementById('todoPreview').textContent = todoAppCode.split('\n').slice(0,40).join('\n') + '\n\n# (preview truncated - download full file to view all code)';
+
+    function downloadFile(filename, content, mimeType){
+      const blob = new Blob([content], {type: mimeType || 'text/plain'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    document.getElementById('downloadCalculator').addEventListener('click', ()=>{
+      downloadFile('basic_calculator.py', basicCalculatorCode, 'text/x-python');
+    });
+    document.getElementById('downloadTodo').addEventListener('click', ()=>{
+      downloadFile('todo_desktop_app.py', todoAppCode, 'text/x-python');
+    });
+
+    document.getElementById('copyCalculator').addEventListener('click', ()=>{
+      navigator.clipboard.writeText(basicCalculatorCode).then(()=>alert('Calculator code copied to clipboard'));
+    });
+    document.getElementById('copyTodo').addEventListener('click', ()=>{
+      navigator.clipboard.writeText(todoAppCode).then(()=>alert('To-Do app code copied to clipboard'));
+    });
+  </script>
+</body>
+</html>
